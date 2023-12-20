@@ -2,9 +2,7 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import { Outlet } from 'react-router-dom';
 import './App.css';
-import Watchlist from './routes/Watchlist';
-import Signup from './routes/Signup';
-import './routes/Signup';
+import './routes/Signin';
 import './routes/Watchlist';
 import Footer from './components/FooterComponent';
 

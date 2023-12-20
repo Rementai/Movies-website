@@ -7,9 +7,65 @@
   font-family: "Open Sans", sans-serif;
 }
 
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.login-box {
+  background-color: #19191a;
+  color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  width: 300px;
+}
+
+.login-container h2 {
+  font-size: 24px;
+}
+
+.login-container form {
+  margin-top: 20px;
+}
+
+.login-container label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.login-container input {
+  font-size: 15px;
+  width: 100%;
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+.login-container button {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border-color: #000000;
+  background-color: darkgray;
+  color: #333333;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.need-account-text {
+  margin-top: 10px;
+}
+
+.need-account-text a {
+  color: #ffffff;
+}
+
 .home,
 .watchlist,
-.signup {
+.signup,
+.signin,
+.details {
   display: flex;
   height: 90vh;
   align-items: center;

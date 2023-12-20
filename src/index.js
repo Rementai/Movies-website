@@ -10,7 +10,9 @@ import {
 import Home from "./routes/Home.js";
 import Watchlist from "./routes/Watchlist.js";
 import App from "./App.js"
+import Signin from "./routes/Signin.js";
 import Signup from "./routes/Signup.js";
+import Details from "./routes/Details.js";
 
 const router = createBrowserRouter([
   {
@@ -25,8 +27,16 @@ const router = createBrowserRouter([
         element: <Watchlist/>,
       },
       {
+        path: "signin",
+        element: <Signin/>,
+      },
+      {
         path: "signup",
         element: <Signup/>,
+      },
+      {
+        path: "details",
+        element: <Details/>,
       },
     ]
   },
