@@ -1,58 +1,99 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import '../styles/Signup.css';
 
 function Signup() {
-    const [formData, setFormData] = useState({
-        login: '',
-        nazwa: '',
-        email: '',
-        haslo: '',
-    });
+  const navigate = useNavigate();
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prevData) => ({ ...prevData, [name]: value }));
-    };
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+  });
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('Registration data:', formData);
-    };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
 
-    return (
-        <div className="registration-container">
-            <div className="registration-box">
-                <h2>Rejestracja</h2>
-                <form onSubmit={handleSubmit}>
-                    <label>
-                        Login:
-                        <input type="text" name="login" value={formData.login} onChange={handleChange} required />
-                    </label>
-                    <br />
-                    <label>
-                        Nazwa:
-                        <input type="text" name="nazwa" value={formData.nazwa} onChange={handleChange} required />
-                    </label>
-                    <br />
-                    <label>
-                        Email:
-                        <input type="email" name="email" value={formData.email} onChange={handleChange} required />
-                    </label>
-                    <br />
-                    <label>
-                        Hasło:
-                        <input type="password" name="haslo" value={formData.haslo} onChange={handleChange} required />
-                    </label>
-                    <br />
-                    <button type="submit">Zarejestruj się</button>
-                </form>
-                <p className="have-account-text">
-                    Posiadasz już konto? <Link to="/signin">Zaloguj się tutaj!</Link>
-                </p>
-            </div>
-        </div>
-    );
+  const handleChangeRoute = () => {
+    navigate('/signin');
+    window.location.reload();
+  };
+
+  const handleRegistration = async (e) => {
+    e.preventDefault();
+
+    if (!formData.name || !formData.email || !formData.password) {
+      return;
+    }
+
+    axios
+      .post('https://at.usermd.net/api/user/create', {
+        name: formData.name,
+        email: formData.email,
+        password: formData.password,
+      })
+      .then((response) => {
+        handleChangeRoute();
+      })
+      .catch((error) => {
+        console.log(error);
+        setFormData({
+          name: '',
+          email: '',
+          password: '',
+        });
+      });
+  };
+
+  return (
+    <div className="registration-container">
+      <div className="registration-box">
+        <h2>Rejestracja</h2>
+        <form onSubmit={handleRegistration}>
+          <label>
+            Nazwa:
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+          </label>
+          <br />
+          <label>
+            Email:
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </label>
+          <br />
+          <label>
+            Hasło:
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+          </label>
+          <br />
+          <button type="submit">Zarejestruj się</button>
+        </form>
+        <p className="have-account-text">
+          Posiadasz już konto? <Link to="/signin">Zaloguj się tutaj!</Link>
+        </p>
+      </div>
+    </div>
+  );
 }
 
 export default Signup;

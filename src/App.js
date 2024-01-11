@@ -1,18 +1,18 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import { Outlet } from 'react-router-dom';
-import './App.css';
-import './routes/Signin';
-import './routes/Watchlist';
 import Footer from './components/FooterComponent';
+import './App.css';
 
 function App() {
   return (
-    <>
+    <div className="app-container">
       <Navbar />
-      <Outlet />
+      <div className="content">
+        <Outlet />
+      </div>
       <Footer />
-    </>
+    </div>
   );
 }
 

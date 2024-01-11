@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../styles/Signin.css';
+import axios from "axios";
 
 function Signin() {
+    const navigate = useNavigate();
+
     const [formData, setFormData] = useState({
         login: '',
-        haslo: '',
+        password: '',
     });
 
     const handleChange = (e) => {
@@ -13,16 +16,37 @@ function Signin() {
         setFormData((prevData) => ({ ...prevData, [name]: value }));
     };
 
-    const handleSubmit = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
-        console.log('Login data:', formData);
+
+        if (!formData.login || !formData.password) {
+            return;
+        }
+
+        axios
+            .post('https://at.usermd.net/api/user/auth', {
+                login: formData.login,
+                password: formData.password
+            })
+            .then((response) => {
+                localStorage.setItem('token', response.data.token);
+                handleChangeRoute();
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    };
+
+    const handleChangeRoute = () => {
+        navigate("/");
+        window.location.reload();
     };
 
     return (
         <div className="login-container">
             <div className="login-box">
                 <h2>Login</h2>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleLogin}>
                     <label>
                         Login:
                         <input type="text" name="login" value={formData.login} onChange={handleChange} required />
@@ -30,7 +54,7 @@ function Signin() {
                     <br />
                     <label>
                         Hasło:
-                        <input type="password" name="haslo" value={formData.haslo} onChange={handleChange} required />
+                        <input type="password" name="password" value={formData.password} onChange={handleChange} required />
                     </label>
                     <br />
                     <button type="submit">Zaloguj się</button>
