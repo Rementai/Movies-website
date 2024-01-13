@@ -1,0 +1,34 @@
+/*
+.search-results-container {
+    position: absolute;
+    top: 100%;
+    max-width: 14.5%;
+    min-width: 14.5%;
+    background-color: #19191a;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    max-height: 265px;
+    overflow-y: auto;
+  }
+*/
+  
+  .search-results {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: calc(100% - 30px);
+    margin-left: 15px;
+  }
+  
+  .search-results li {
+    padding: 10px;
+  }
+  
+  .nav-link {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .nav-link:hover {
+    color: #09bef0;
+  }

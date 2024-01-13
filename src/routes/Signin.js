@@ -59,7 +59,7 @@ function Signin() {
                     <br />
                     <button type="submit">Zaloguj się</button>
                 </form>
-                <p className="need-account-text">
+                <br/><p className="need-account-text">
                     Potrzebujesz konto? <Link to="/signup">Zarejestruj się!</Link>
                 </p>
             </div>

@@ -16,11 +16,19 @@ input {
     font-size: 1rem;
     width: 100%;
     margin-left: 5px;
+    padding: 8px;
+    margin-right: 8px;
 }
 
 #search-icon {
+    margin-right: 8px;
     color: #09bef0 !important;
 }
+
+button {
+    padding: 8px;
+    cursor: pointer;
+  }
 
 input:focus {
     outline: none;

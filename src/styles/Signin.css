@@ -12,6 +12,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    margin-top: -7vh;
     min-height: 87vh; 
     padding: 20px;
     box-sizing: border-box;
@@ -66,7 +68,17 @@ body {
 }
 
 .need-account-text a {
-    color: #ffffff;
+    color: #09bef0;
 }
+
+.login-box button {
+    width: 100%;
+    padding: 10px;
+    background-color: #09bef0;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
 
 

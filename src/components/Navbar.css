@@ -73,7 +73,7 @@
     padding: 0.5rem 1rem;
     height: 100%;
   }
-  
+
   .activated {
     color: #09bef0;
   }
@@ -146,6 +146,13 @@
       transform: translate(-100%, 60%);
       font-size: 1.8rem;
       cursor: pointer;
+    }
+
+    .divider-line {
+      height: 1px;
+      width: 15%;
+      background-color: #fff;
+      margin: 15px auto;
     }
 
   }

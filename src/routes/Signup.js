@@ -88,8 +88,8 @@ function Signup() {
           <br />
           <button type="submit">Zarejestruj się</button>
         </form>
-        <p className="have-account-text">
-          Posiadasz już konto? <Link to="/signin">Zaloguj się tutaj!</Link>
+        <br/><p className="have-account-text">
+          Posiadasz już konto? <Link to="/signin">Zaloguj się!</Link>
         </p>
       </div>
     </div>

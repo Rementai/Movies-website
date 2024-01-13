@@ -12,6 +12,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    margin-top: -6vh;
     min-height: 87vh;
     padding: 20px;
     box-sizing: border-box;
@@ -47,11 +49,8 @@ body {
     height: 30px;
     margin-bottom: 10px;
     border: 1px solid #4d4b4b;
-    /* Dodana obramówka */
     border-radius: 4px;
-    /* Zaokrąglenie rogów */
     padding: 5px;
-    /* Dodatkowy padding wewnątrz pola wejściowego */
     color: #fff;
 }
 
@@ -71,5 +70,15 @@ body {
 }
 
 .have-account-text a {
-    color: #ffffff;
+    color: #09bef0;
 }
+
+.registration-box button {
+    width: 100%;
+    padding: 10px;
+    background-color: #09bef0;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }

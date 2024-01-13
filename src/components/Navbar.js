@@ -4,15 +4,28 @@ import { SiThemoviedatabase } from "react-icons/si";
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
 import SearchBar from './SearchBar';
-import { useNavigate } from "react-router-dom";
+import SearchResults from './SearchResults';
+import { useNavigate, useLocation } from "react-router-dom";
 import "./Navbar.css";
+
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
+  const [filteredMovies, setFilteredMovies] = useState([]);
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const handleClick = () => setClick(!click);
-  const closeMobileMenu = () => setClick(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const handleClick = () => {
+    setClick(!click);
+    setIsMobileMenuOpen(!click);
+  };
+
+  const closeMobileMenu = () => {
+    setClick(false);
+    setIsMobileMenuOpen(false);
+  };
 
   const handleLogout = () => {
     localStorage.removeItem('token');
@@ -64,12 +77,22 @@ const Navbar = () => {
               onClick={closeMobileMenu}
             >
               Sign Up
+              {isMobileMenuOpen && <div className='divider-line'></div>}
             </NavLink>
           </li>
         </>
       );
     }
   };
+
+  const handleSearch = (results) => {
+    setFilteredMovies(results);
+  };
+
+  useEffect(() => {
+    setFilteredMovies([]);
+  }, [location.pathname]);
+
 
   return (
     <>
@@ -87,10 +110,19 @@ const Navbar = () => {
               <li>
                 <div className='search-bar-container'>
                   <SearchBar
+                    onSearch={handleSearch}
                     className={({ isActive }) =>
                       'nav-links' + (isActive ? ' activated' : '')
                     }
-                    onClick={closeMobileMenu} />
+                    onClick={closeMobileMenu}
+                  />
+                  {filteredMovies.length > 0 && (
+                    <SearchResults
+                      filteredMovies={filteredMovies}
+                      onClick={closeMobileMenu}
+                      isMobileMenuOpen={isMobileMenuOpen}
+                    />
+                  )}
                 </div>
               </li>
               <li className='nav-item'>
@@ -109,6 +141,6 @@ const Navbar = () => {
       </IconContext.Provider>
     </>
   );
-}
+};
 
 export default Navbar;
