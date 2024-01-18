@@ -4,7 +4,7 @@ React Project
 
 ## Programme
 
-Simple React IMDb/Filmweb clone
+Simple React Movie Database
 
 ## Preview
 
