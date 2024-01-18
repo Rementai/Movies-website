@@ -1,42 +1,56 @@
 .details-box {
-    display: flex;
-    margin-top: 60px;
-    margin-left: 80px;
-    margin-right: 80px;
-    background: linear-gradient(45deg, #19191a, #4b4a4a);
-    padding: 1%;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 0 10px rgba(9, 190, 240, 1);
-  }
-  
-  .detail-first-column {
-    margin-right: 20px;
-  }
-  
-  .detail-first-column img {
-    width: 320px;
-    height: 460px;
-    border-radius: 20px;
-  }
-  
-  .detail-second-column {
-    flex: 1;
-    margin-left: 20px;
-  }
-  
-  .detail-second-column h1 {
-    color: #e3e3e3;
-    margin-bottom: 10px;
-  }
-  
-  .detail-second-column p {
-    color: #e3e3e3;
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-  
-  .detail-second-column p:last-child {
-    margin-bottom: 0;
-  }
-  
+  display: flex;
+  margin-top: 60px;
+  margin-left: 80px;
+  margin-right: 80px;
+  background: linear-gradient(45deg, #19191a, #4b4a4a);
+  padding: 1%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(9, 190, 240, 1);
+  position: relative; /* Dodane, aby pozycjonować przycisk */
+}
+
+.detail-first-column {
+  margin-right: 20px;
+}
+
+.detail-first-column img {
+  width: 320px;
+  height: 460px;
+  border-radius: 20px;
+}
+
+.detail-second-column {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.detail-second-column h1 {
+  color: #e3e3e3;
+  margin-bottom: 10px;
+}
+
+.detail-second-column p {
+  color: #e3e3e3;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.detail-second-column p:last-child {
+  margin-bottom: 0;
+}
+
+.delete-button {
+  background-color: #09bef0;
+  color: #fff;
+  border: none;
+  padding-block: 13px;
+  padding-inline: 27px;
+  font-size: large;
+  cursor: pointer;
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  border-radius: 8px;
+}

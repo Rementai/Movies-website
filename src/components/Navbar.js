@@ -54,6 +54,7 @@ const Navbar = () => {
               onClick={handleLogout}
             >
               Log Out
+              {isMobileMenuOpen && <div className='divider-line'></div>}
             </Link>
           </li>
         </>
